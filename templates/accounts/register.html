@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style type="text/css">
+    .main
+       {
+position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: auto; /* or just remove */
+  left: 0;
+  z-index: 1;
+} }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div class = "main">
+    <h1>Register</h1>
+<form method="POST" action="">
+   {% csrf_token %}
+    {{ form|crispy }}
+  <button type="submit" class="btn btn-primary">Register</button>
+        {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+</form>
+</div>
+</body>
+{% endblock %}
+</html>
